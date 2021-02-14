@@ -27,7 +27,7 @@ const rootReducer = (state = initialState, action) => {
 const store = createStore(rootReducer);    //  Redux Instance on store
 console.log(store.getState());
 
-// Subscription
+// Subscription   IS TRIGGER WHENEVER A A DISPATCH IS OCCURED
 
 store.subscribe(() => {
   console.log('[Subscription]', store.getState());
