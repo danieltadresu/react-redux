@@ -7,14 +7,8 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
-// import reducer from './store/reducer';
-import counterReducer from './store/reducers/counter';
-import resultReducer from './store/reducers/result';
+import reducer from './store/reducer';
 
-const rootReducer = combineReducers({
-    ctr: counterReducer,
-    res: resultReducer
-});
 
 const logger = store => {
     return next => {
@@ -28,8 +22,7 @@ const logger = store => {
 }
 
 // CREATE STORE WITH createStore() METHOD FROM REDUX
-// const store = createStore(reducer) 
-const store = createStore(rootReducer, applyMiddleware(logger, thunk)) 
+const store = createStore(reducer) 
 
 ReactDOM.render(
     <Provider store={store}> {/* WITH THAT, OUR STORE IS CONNECTED WITH OUR REACT APP*/}
