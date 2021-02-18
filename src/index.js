@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'; // WE NEED TO HAVE react-redux TO CONNECT THE REACT APP WITH REDUX 
 import { createStore, combineReducers, applyMiddleware } from 'redux'; // WE NEED TO HAVE REDUX INSTALLED IN OUR package.-lock.json
+import thunk from 'redux-thunk';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
@@ -28,7 +29,7 @@ const logger = store => {
 
 // CREATE STORE WITH createStore() METHOD FROM REDUX
 // const store = createStore(reducer) 
-const store = createStore(rootReducer, applyMiddleware(logger)) 
+const store = createStore(rootReducer, applyMiddleware(logger, thunk)) 
 
 ReactDOM.render(
     <Provider store={store}> {/* WITH THAT, OUR STORE IS CONNECTED WITH OUR REACT APP*/}
